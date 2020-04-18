@@ -16,6 +16,7 @@ import java.awt.event.*;
    
       public static void main (String [] args){
          FlashCardHome fch = new FlashCardHome();
+         
       }
       
       //Method to create the GUI
@@ -43,9 +44,17 @@ import java.awt.event.*;
          jp.add(jb);
          jp.add(jb2);
          jb.addActionListener(this);
+         jb2.addActionListener(this);
       }
       
          public void actionPerformed (ActionEvent e){
-
+            //If Create Button is pushed, call CreateFlashCard method
+            if(e.getSource() == jb){
+               CreateFlashCard create = new CreateFlashCard();
+               
+            //If Review Button is pushed, call ReviewFlashCard method
+            }if(e.getSource() == jb2){
+               ReviewFlashCard review = new ReviewFlashCard();
+            }
       }
    }
