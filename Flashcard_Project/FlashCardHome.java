@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -54,7 +53,7 @@ import java.awt.event.*;
                
             //If Review Button is pushed, call ReviewFlashCard method
             }if(e.getSource() == jb2){
-               ReviewFlashCard review = new ReviewFlashCard();
+               CreateFlashCard review = new CreateFlashCard();
             }
       }
    }

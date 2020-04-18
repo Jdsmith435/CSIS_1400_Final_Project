@@ -18,7 +18,7 @@ public static void main (String [] args) {
 
 }
 
-public ReviewFlashCard ( /*flashCard [], answer[] */) {
+public ReviewFlashCard (String question[], String answer[] ) {
       Scanner input = new Scanner(System.in);
       
       //Creating the GUI
@@ -38,8 +38,9 @@ public ReviewFlashCard ( /*flashCard [], answer[] */) {
       //test flash cards
       String[] userAnswer = new String[/*flashCard.length*/]
       
-      for ( int i = 0; i < flashCard.lenth; i++){
-         
+      for(int i = 0; i < question.lenth; i++){
+         jl = new JLabel(question[i]);
+         jp.add(jl);
       }
    }
 }
