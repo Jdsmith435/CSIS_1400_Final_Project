@@ -19,12 +19,14 @@ public static void main (String [] args) {
 
 public CreateFlashCard () {
 
+      //Creating GUI
       setTitle("Create Flash Cards");
       setSize(500, 500);
       setVisible(true);
       
       jp = new JPanel();
       
+      //Fix Me Located Here
       jl = new JLabel("\t FIX ME");
       jl.setPreferredSize(new Dimension(175, 100));
       jl.setVerticalAlignment(JLabel.TOP);
