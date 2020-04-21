@@ -7,14 +7,15 @@ import java.awt.Dimension;
 import java.awt.event.*;
 import java.util.Arrays;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 //Creating the GUI/Flashcard Array fields
 public class CreateFlashCard extends JFrame implements ActionListener{
 
       //Objects for GUI
-      JLabel jl, jl2, jl3, jl4;
+      JLabel jl, jl2, qLabel, aLabel;
       JButton jb, jb2, jb3, jb4;
-      JPanel jp;
+      JPanel jp, jp2;
       JTextField jt;
       
       private String cQuestion;
@@ -32,17 +33,17 @@ public static void main (String [] args) {
 
 public CreateFlashCard () {
 
+      
       //Creating GUI
       setTitle("Create Flash Cards");
       setSize(500, 500);
       setVisible(true);
-      
       jp = new JPanel();
       
       //Fix Me Located Here
       jl = new JLabel("Would you like to create or review?");
       jl.setPreferredSize(new Dimension(225, 100));
-      jl.setVerticalAlignment(JLabel.TOP);
+      
       jp.add(jl);
       add(jp);
       
@@ -63,39 +64,18 @@ public CreateFlashCard () {
    
    //creates flashcards and answers in an array based on how FlashCardCount();
    public void CreateFlashCardList(){
-   
       
-      
-         setTitle("Create Flash Card");
-         setSize(500, 500);
-         setVisible(true);
-         
-         jp = new JPanel();
- 
+      //asks for questions and questions
       for(int i = 0; i < question.length; i++){
-         System.out.println("Please enter question "+(i+1));
-         this.question [i] = input.nextLine();   
-         
+        this.question [i]= JOptionPane.showInputDialog("Enter Question " + (i + 1) + ": "); 
+        this.answer [i]= JOptionPane.showInputDialog("Enter Answer " + (i + 1) + ": ");
       }
       
-      //repeats entered questions
-      System.out.println("Your questions are:");
-      for(int i = 0; i < question.length; i++){
-         System.out.println(question[i]);
+      //Repeats questions and answers
+      for ( int i = 0; i < question.length; i++){
+      JOptionPane.showMessageDialog(null,"Question " + (i + 1) + ": " + question[i]);
+      JOptionPane.showMessageDialog(null,"Answer " + (i + 1) + ": " + answer[i]);
       }
-      
-      System.out.println();
-      for(int b = 0; b < answer.length; b++){
-         System.out.println("Please enter answer "+(b+1));
-         this.answer[b] = input.nextLine();   
-      }
-      
-      //repeats entered answers
-      System.out.println("Your answers are:");
-      for(int b = 0; b < answer.length; b++){
-         System.out.println(answer[b]);
-      }  
-      
    }
    
    //allows user to check question of one previously entered
@@ -116,10 +96,7 @@ public CreateFlashCard () {
    
    //allows user to check answer of one previously entered
    public void getAnswer() {
-       
-      Scanner input = new Scanner(System.in);
-      System.out.println();
-      System.out.println("Which answer would you like to look at?");
+      this.question [i]= JOptionPane.showInputDialog("Which Question?");
       int checkA = input.nextInt()-1;
       input.nextLine();
       
@@ -129,6 +106,21 @@ public CreateFlashCard () {
          System.out.println("Invalid Input. Answer does not exist.");
       }
    }
+   
+   public void reviewFlashCard (String[] question, String[] answer){
+         
+         for(int i = 0; i < question.length; i++){
+         System.out.println(question[i]);
+         String [] userAnswer = new String [answer.length];
+         userAnswer[i] = input.nextLine();
+         if( userAnswer[i].equals(answer[i]))
+         {
+            System.out.println("Correct");
+         }else{
+            System.out.println("Incorrect");
+         }
+      }
+    } 
    
    //Two Buttons to create and review
    public void actionPerformed (ActionEvent e){
@@ -148,19 +140,5 @@ public CreateFlashCard () {
             }if(e.getSource() == jb4){
                getAnswer();
             }
-      }
-   public void reviewFlashCard (String[] question, String[] answer){
-         
-         for(int i = 0; i < question.length; i++){
-         System.out.println(question[i]);
-         String [] userAnswer = new String [answer.length];
-         userAnswer[i] = input.nextLine();
-         if( userAnswer[i].equals(answer[i]))
-         {
-            System.out.println("Correct");
-         }else{
-            System.out.println("Incorrect");
-         }
-      }
-    }  
+      } 
 }
