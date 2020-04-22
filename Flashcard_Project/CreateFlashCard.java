@@ -80,30 +80,25 @@ public CreateFlashCard () {
    
    //allows user to check question of one previously entered
    public void getQuestion() {
-       
-      Scanner input = new Scanner(System.in);
-      System.out.println(); 
-      System.out.println("Which question would you like to look at?");
-      int checkQ = input.nextInt()-1;
-      input.nextLine();
-      
-      if (checkQ <= question.length - 1 && checkQ > -1){
-         System.out.println("Question: " + question[checkQ]);
+      String checkQ = JOptionPane.showInputDialog("Which Question?" ); 
+      int questionNum = Integer.parseInt(checkQ);
+      System.out.print(questionNum+100);
+      if (questionNum <= answer.length - 1 && questionNum > -1){
+         JOptionPane.showMessageDialog(null,question[questionNum]);
       } else {
-         System.out.println("Invalid Input. Question does not exist.");
-      }   
+         JOptionPane.showMessageDialog(null,"Invailed, question does not exist.");
+      }
    }
    
    //allows user to check answer of one previously entered
    public void getAnswer() {
-      this.question [i]= JOptionPane.showInputDialog("Which Question?");
-      int checkA = input.nextInt()-1;
-      input.nextLine();
-      
-      if (checkA <= answer.length - 1 && checkA > -1){
-         System.out.println("Answer: " + answer[checkA]);
+      String checkA = JOptionPane.showInputDialog("Which Answer?" ); 
+      int answerNum = Integer.parseInt(checkA);
+      System.out.print(answerNum+100);
+      if (answerNum <= answer.length - 1 && answerNum > -1){
+         JOptionPane.showMessageDialog(null,answer[answerNum]);
       } else {
-         System.out.println("Invalid Input. Answer does not exist.");
+         JOptionPane.showMessageDialog(null,"Invailed, answer does not exist.");
       }
    }
    
