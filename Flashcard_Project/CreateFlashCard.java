@@ -85,36 +85,36 @@ public CreateFlashCard () {
       System.out.print(questionNum+100);
       if (questionNum <= answer.length - 1 && questionNum > -1){
          JOptionPane.showMessageDialog(null,question[questionNum]);
-      } else {
-         JOptionPane.showMessageDialog(null,"Invailed, question does not exist.");
+         }else{
+            JOptionPane.showMessageDialog(null,"Invailed, question does not exist.");
+         }
       }
-   }
    
    //allows user to check answer of one previously entered
    public void getAnswer() {
       String checkA = JOptionPane.showInputDialog("Which Answer?" ); 
       int answerNum = Integer.parseInt(checkA);
       System.out.print(answerNum+100);
-      if (answerNum <= answer.length - 1 && answerNum > -1){
-         JOptionPane.showMessageDialog(null,answer[answerNum]);
-      } else {
-         JOptionPane.showMessageDialog(null,"Invailed, answer does not exist.");
-      }
+          if (answerNum <= answer.length - 1 && answerNum > -1){
+             JOptionPane.showMessageDialog(null,answer[answerNum]);
+          } else {
+             JOptionPane.showMessageDialog(null,"Invailed, answer does not exist.");
+          }
    }
    
+   //Method to be called when flash cards are ready
    public void reviewFlashCard (String[] question, String[] answer){
          
          for(int i = 0; i < question.length; i++){
-         System.out.println(question[i]);
-         String [] userAnswer = new String [answer.length];
-         userAnswer[i] = input.nextLine();
-         if( userAnswer[i].equals(answer[i]))
-         {
-            System.out.println("Correct");
-         }else{
-            System.out.println("Incorrect");
+             String [] userAnswer = new String [answer.length];
+             userAnswer [i] = JOptionPane.showInputDialog(question[i]); 
+                 if( userAnswer[i].equals(answer[i]))
+                 {
+                    JOptionPane.showMessageDialog(null,"Correct");
+                 }else{
+                    JOptionPane.showMessageDialog(null,"Incorrect");
+                 }
          }
-      }
     } 
    
    //Two Buttons to create and review
