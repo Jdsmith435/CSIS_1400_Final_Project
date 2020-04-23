@@ -62,7 +62,7 @@ public CreateFlashCard () {
    
       //Get number of flash cards. String must be converted to int.
       String sNumOfCards = JOptionPane.showInputDialog("How many cards?"); 
-      this.numOfCards = Integer.parseInt(sNumOfCards) - 1 ;
+      this.numOfCards = Integer.parseInt(sNumOfCards);
       this.question = new String [numOfCards];
       this.answer = new String [numOfCards];
         
@@ -77,6 +77,10 @@ public CreateFlashCard () {
       JOptionPane.showMessageDialog(null,"Question " + (i + 1) + ": " + question[i]);
       JOptionPane.showMessageDialog(null,"Answer " + (i + 1) + ": " + answer[i]);
       }
+      
+      //Sends Questions and Answers to txt File
+      ToTxtFile write = new ToTxtFile();
+      write.toTXT(question, answer, numOfCards);
    }
    
    //allows user to check question of one previously entered
