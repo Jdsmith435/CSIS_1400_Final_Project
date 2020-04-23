@@ -1,12 +1,9 @@
 import javax.swing.JFrame;
-import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Dimension;
 import java.awt.event.*;
-import java.util.Arrays;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 //Creating the GUI/Flashcard Array fields
@@ -16,16 +13,14 @@ public class CreateFlashCard extends JFrame implements ActionListener{
       JLabel jl, jl2, qLabel, aLabel;
       JButton jb, jb2, jb3, jb4;
       JPanel jp, jp2;
-      JTextField jt;
       
       private String cQuestion;
       private int numQuestion;
       private int length;
       
-      String[] question = new String[3];
-      String[] answer = new String[3];
-      
-      Scanner input = new Scanner(System.in);
+      int numOfCards;
+      String[] question;
+      String[] answer;
        
 public static void main (String [] args) {
     
@@ -64,7 +59,13 @@ public CreateFlashCard () {
    
    //creates flashcards and answers in an array based on how FlashCardCount();
    public void CreateFlashCardList(){
-      
+   
+      //Get number of flash cards. String must be converted to int.
+      String sNumOfCards = JOptionPane.showInputDialog("How many cards?"); 
+      this.numOfCards = Integer.parseInt(sNumOfCards) - 1 ;
+      this.question = new String [numOfCards];
+      this.answer = new String [numOfCards];
+        
       //asks for questions and questions
       for(int i = 0; i < question.length; i++){
         this.question [i]= JOptionPane.showInputDialog("Enter Question " + (i + 1) + ": "); 
@@ -82,7 +83,6 @@ public CreateFlashCard () {
    public void getQuestion() {
       String checkQ = JOptionPane.showInputDialog("Which Question?" ); 
       int questionNum = Integer.parseInt(checkQ);
-      System.out.print(questionNum+100);
       if (questionNum <= answer.length - 1 && questionNum > -1){
          JOptionPane.showMessageDialog(null,question[questionNum]);
          }else{
