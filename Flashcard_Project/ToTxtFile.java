@@ -13,9 +13,10 @@ public class ToTxtFile
         FileWriter totxt = new FileWriter("FlashCards.txt");
         for(int i = 0; i < questions.length; i++)
             {
-                totxt.write(String.format((i+1) + ": " + questions[i]));
+                totxt.write("\n\t Flash Cards \n");
+                totxt.write("Question " + String.format((i+1) + ": " + questions[i]));
                 totxt.write(System.lineSeparator());
-                totxt.write(String.format((i+1)  + ": " + answers[i]));
+                totxt.write("Answer " + String.format((i+1)  + ": " + answers[i]));
                 totxt.write(System.lineSeparator());
             }
         totxt.close();

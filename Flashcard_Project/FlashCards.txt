@@ -1,10 +1,11 @@
-1: 1
-1: 1
-2: 2
-2: 2
-3: 3
-3: 3
-4: 4
-4: 4
-5: 5
-5: 5
+	 Flash Cards 
+Question 1: 1
+Answer 1: 1
+
+ This file is overwritten everytime program is ran. 
+Please save flash cards to seperate file	 Flash Cards 
+Question 2: 2
+Answer 2: 2
+
+ This file is overwritten everytime program is ran. 
+Please save flash cards to seperate file
